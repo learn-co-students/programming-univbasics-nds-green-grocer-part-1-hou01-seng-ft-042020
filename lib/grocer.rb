@@ -1,17 +1,28 @@
 def find_item_by_name_in_collection(name, collection)
-  # Implement me first!
-  #
-  # Consult README for inputs and outputs
-
+  index = 0
+  hash = {}
+  while collection[index] do 
+    if name == collection[index][:item]
+      return hash = collection[index]
+    end
+    index += 1
+  end
+  nil
 end
 
 def consolidate_cart(cart)
-  # Consult README for inputs and outputs
-  #
-  # REMEMBER: This returns a new Array that represents the cart. Don't merely
-  # change `cart` (i.e. mutate) it. It's easier to return a new thing.
-
+  array_unique = []
+  index = 0
+  while cart[index] do 
+    item_hash = find_item_by_name_in_collection(cart[index][:item], array_unique)
+    if item_hash 
+      item_hash[:count] += 1
+    else
+      item_hash = cart[index]
+      item_hash[:count] = 1
+      array_unique << item_hash
+    end
+    index += 1
+  end
+  array_unique
 end
-
-
-  
